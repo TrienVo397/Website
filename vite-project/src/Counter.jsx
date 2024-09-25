@@ -3,10 +3,15 @@ import React,{useState} from 'react'
 function Counter(){
     const [count, setCount] = useState(0);
     const increment = () =>{
-        setCount(count+1)
+        setCount(c => c+1) // c prepresent the previous count
+        setCount(c => c+1)
+        setCount(c => c+1)
+
     }
     const decrement =()=>{
-        setCount(count -1);
+        setCount(c => c-1)
+        setCount(c => c-1)
+        setCount(c => c-1)
     }
     const reset =()=>{
         setCount(0)
