@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 function ToDoList() {
-  const [tasks, setTask] = useState([
+  const [tasks, setTasks] = useState([
     "Eat Breakfast",
     "Take a Shower",
     "Walk the Dog",
@@ -12,12 +12,32 @@ function ToDoList() {
   }
 
   function addTask() {
-    setTask(t=> [...tasks, newTask]);
+    setTasks(t=> [...t, newTask]);
     setNewTask("");
   }
   function removeTask(index) {
-    setTask(tasks.filter((_, i) => i !== index));
+    setTasks(tasks.filter((_, i) => i !== index));
   }
+
+  function moveTaskUp(index) {
+    if (index > 0) {
+      const updatedTasks = [...tasks]; // watch out for the semicolon
+      [updatedTasks[index], updatedTasks[index - 1]] = [updatedTasks[index - 1], updatedTasks[index]];
+
+      setTasks(updatedTasks)
+    }
+  }
+
+  function moveTaskDown(index) {
+    if (index < tasks.length-1) {
+      const updatedTasks = [...tasks];
+      [updatedTasks[index], updatedTasks[index+1]] = [updatedTasks[index +1], updatedTasks[index]];
+      setTasks(updatedTasks)
+    }
+  }
+
+
+ 
   return (
     <div className="to-do-list">
         <h2>List of Task</h2>
@@ -35,8 +55,8 @@ function ToDoList() {
             <button onClick={() => removeTask(index)} className="delete-button"
                 >Delete</button>
 
-            <button className="move-button">☝️</button>
-            <button className="move-button">👇</button>
+            <button className="move-button" onClick={()=>moveTaskUp(index)}>☝️</button>
+            <button className="move-button" onClick={() =>moveTaskDown(index)}>👇</button>
           </li>
         ))}
       </ol>
