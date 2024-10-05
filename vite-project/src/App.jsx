@@ -1,12 +1,10 @@
-import DigitalClockApp from "./DigitalClockApp.jsx"
+import ComponentA from "./ComponentA.jsx"
 function App() {
 
   return(
     <div>
-      <DigitalClockApp/>
-      <DigitalClockApp/>
-      <DigitalClockApp/>
-      <DigitalClockApp/>
+      <ComponentA/>
+    
 
       </div>
     
