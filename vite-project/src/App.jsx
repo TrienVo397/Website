@@ -1,11 +1,12 @@
-import MyComponent from "./MyComponent.jsx"
+import StopWatch from './StopWatch.jsx'
 function App() {
 
   return(
     <div>
-      <MyComponent/>
+      <StopWatch/>
+      <StopWatch/>
+      <StopWatch/>
     
-
       </div>
     
   );
